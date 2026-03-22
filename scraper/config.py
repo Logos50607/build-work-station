@@ -14,6 +14,9 @@ PRODUCTS = {
         "Deco X50-5G",
         "NR5103",
         "5G CPE 路由器",
+        "4G LTE 分享器",
+        "Archer MR",
+        "LTE CPE",
     ],
     "UPS": [
         "APC Back-UPS",

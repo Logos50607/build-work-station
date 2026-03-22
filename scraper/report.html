@@ -364,11 +364,11 @@
   </table>
 </div>
 
-<!-- ===== 5G CPE ===== -->
+<!-- ===== CPE ===== -->
 <div class="category">
   <div class="category-header">
-    <h2>5G CPE（SIM 卡路由器）</h2>
-    <span class="count">2 筆 ／ 已排除中國品牌及非 SIM 卡設備</span>
+    <h2>5G / 4G LTE CPE（SIM 卡路由器）</h2>
+    <span class="count">4 筆 ／ 已排除中國品牌及非 SIM 卡設備 ／ 4G 方案亦可行</span>
   </div>
 
   <div class="pros-cons">
@@ -379,23 +379,24 @@
         <li>CGNAT 天然隔絕外部掃描，資安較佳</li>
         <li>搭配 Tailscale 可從任何地方 SSH 回家</li>
         <li>有線 GbE 直連 Mini PC，低延遲穩定</li>
+        <li>4G LTE 在台灣覆蓋率極高，穩定性比 5G 好</li>
       </ul>
     </div>
     <div class="cons">
       <h3>類別缺點</h3>
       <ul>
         <li>行動網路偶發斷線或 IP 重撥，需設自動重連</li>
-        <li>5G TDD 上行約 30~100Mbps，傳大量 context 略慢</li>
+        <li>4G Cat.6 上行約 50Mbps，5G TDD 上行約 30~100Mbps</li>
         <li>需月租 SIM 吃到飽（NT$799~999/月）</li>
-        <li>大樓 5G 訊號視基地台距離而定</li>
+        <li>5G 申辦需確認電信商配套，4G 方案較容易取得</li>
       </ul>
     </div>
   </div>
 
   <div class="rec">
-    <strong>建議：</strong>
-    <strong>Zyxel NR5103</strong>（NT$6,880）是台灣三大電信商（中華/遠傳/台哥大）認證機型，支援 n28/n41/n78 全台主力頻段，散熱設計適合 24/7 長期運作，是首選。
-    TP-Link Deco X50-5G 是次選，Mesh 擴充能力強，但台灣電信認證資料較少。
+    <strong>4G 可行嗎？</strong>完全可以。Claude Code Agent 主要是 API 呼叫（小封包），4G Cat.6 的 50~100Mbps 已綽綽有餘。
+    若 5G 方案有申辦困難，<strong>TP-Link Archer MR600</strong>（NT$3,999）是台灣最常見的 4G LTE CPE，穩定有口碑。
+    若未來有機會升 5G，<strong>Zyxel NR5103</strong>（NT$6,880）5G/4G 雙模，一次買到位。
   </div>
 
   <table>
@@ -410,14 +411,65 @@
     <tbody>
 
       <tr>
-        <td class="radio-cell"><input type="radio" name="cpe" data-price="6880" data-name="Zyxel NR5103 NT$6,880" checked></td>
+        <td class="radio-cell"><input type="radio" name="cpe" data-price="3599" data-name="TP-Link WiFi 6 AX1800 4G LTE NT$3,599"></td>
         <td>
           <div class="item-name">
-            <a href="https://shopee.tw/product/19176345/27776160866" target="_blank">Zyxel NR5103 5G 插卡路由器（台灣版）</a>
-            <span class="tag tag-rec">推薦</span>
+            <a href="https://24h.pchome.com.tw/prod/DRAN08-A900BV5GI" target="_blank">TP-Link WiFi 6 AX1800 雙頻 Gigabit 4G LTE Cat.6 Mesh 路由器</a>
+            <span class="tag tag-rec">4G 推薦</span>
           </div>
           <div class="specs">
-            <span class="spec-tag hi">5G Sub-6GHz NR（真正 5G SIM）</span>
+            <span class="spec-tag hi">4G LTE Cat.6（下行 300Mbps / 上行 50Mbps）</span>
+            <span class="spec-tag">Wi-Fi 6 AX1800 雙頻</span>
+            <span class="spec-tag">Gigabit LAN</span>
+            <span class="spec-tag hi">Mesh 擴充支援</span>
+            <span class="spec-tag">SIM 卡槽</span>
+            <span class="spec-tag">B1/B3/B7/B8/B28 台灣主力頻段</span>
+          </div>
+          <div class="analysis">
+            <span class="pro">優：</span>Wi-Fi 6 + 4G Cat.6 的中階 CPE，性價比最高；支援 Mesh 擴充；PChome 有購物保障；台灣 4G 覆蓋率接近 100%，穩定性極佳；Claude Code API 用 4G 速度完全足夠。<br>
+            <span class="con">缺：</span>4G Cat.6 峰值下行 300Mbps（實際約 50~150Mbps），未來若需大量下載稍慢；不支援 5G NR。
+          </div>
+        </td>
+        <td class="price">
+          <div class="price-total">NT$3,599</div>
+        </td>
+        <td><a class="badge badge-pchome" href="https://24h.pchome.com.tw/prod/DRAN08-A900BV5GI" target="_blank">PChome</a></td>
+      </tr>
+
+      <tr>
+        <td class="radio-cell"><input type="radio" name="cpe" data-price="3999" data-name="TP-Link Archer MR600 4G Cat.6 NT$3,999"></td>
+        <td>
+          <div class="item-name">
+            <a href="https://24h.pchome.com.tw/prod/DRAF07-A900AD1FK" target="_blank">TP-Link Archer MR600 AC1200 Cat.6 無線雙頻 4G LTE 路由器</a>
+          </div>
+          <div class="specs">
+            <span class="spec-tag hi">4G LTE Cat.6（下行 300Mbps / 上行 50Mbps）</span>
+            <span class="spec-tag">Wi-Fi 5 AC1200 雙頻</span>
+            <span class="spec-tag">外接天線（增益提升）</span>
+            <span class="spec-tag">4× GbE LAN</span>
+            <span class="spec-tag">SIM 卡槽</span>
+            <span class="spec-tag">B1/B3/B7/B8/B28 台灣主力頻段</span>
+          </div>
+          <div class="analysis">
+            <span class="pro">優：</span>台灣市場口碑最好的 4G CPE 之一；<strong>外接天線</strong>設計在訊號弱的環境可加天線增益；4× GbE LAN 埠多，能接更多有線設備；成熟產品穩定可靠。<br>
+            <span class="con">缺：</span>Wi-Fi 5（非 Wi-Fi 6），無線效能略遜上方 AX1800；售價比上方貴 NT$400。
+          </div>
+        </td>
+        <td class="price">
+          <div class="price-total">NT$3,999</div>
+        </td>
+        <td><a class="badge badge-pchome" href="https://24h.pchome.com.tw/prod/DRAF07-A900AD1FK" target="_blank">PChome</a></td>
+      </tr>
+
+      <tr>
+        <td class="radio-cell"><input type="radio" name="cpe" data-price="6880" data-name="Zyxel NR5103 5G/4G NT$6,880" checked></td>
+        <td>
+          <div class="item-name">
+            <a href="https://shopee.tw/product/19176345/27776160866" target="_blank">Zyxel NR5103 5G 插卡路由器（台灣版，支援 4G 降頻）</a>
+            <span class="tag tag-rec">5G 推薦</span>
+          </div>
+          <div class="specs">
+            <span class="spec-tag hi">5G Sub-6GHz NR + 4G LTE 雙模</span>
             <span class="spec-tag hi">n28 / n41 / n78 台灣全頻支援</span>
             <span class="spec-tag hi">台灣三大電信商認證</span>
             <span class="spec-tag">Wi-Fi 6 AX3000 雙頻</span>
@@ -426,8 +478,8 @@
             <span class="spec-tag">SIM 卡槽</span>
           </div>
           <div class="analysis">
-            <span class="pro">優：</span>台灣三大電信商均認證；n78（3.5GHz）主力頻段全支援；散熱孔設計適合 24/7；2.5GbE WAN 留有升級空間；附管理介面可排程重開機。<br>
-            <span class="con">缺：</span>Wi-Fi 6（非 Wi-Fi 7），日常已夠用；體積略大（約 18×12×4cm）。
+            <span class="pro">優：</span>5G/4G 雙模，5G 申辦後不用換機；台灣三大電信商認證；散熱孔設計適合 24/7；2.5GbE WAN 留有升級空間。<strong>先插 4G SIM 用著，之後升 5G 直接換 SIM 就好。</strong><br>
+            <span class="con">缺：</span>比純 4G 機型貴約 NT$2,880；5G 申辦困難時買了只用 4G 稍顯浪費。
           </div>
         </td>
         <td class="price">
@@ -437,21 +489,21 @@
       </tr>
 
       <tr>
-        <td class="radio-cell"><input type="radio" name="cpe" data-price="6999" data-name="TP-Link Deco X50-5G NT$6,999"></td>
+        <td class="radio-cell"><input type="radio" name="cpe" data-price="6999" data-name="TP-Link Deco X50-5G 5G/4G NT$6,999"></td>
         <td>
           <div class="item-name">
-            <a href="https://24h.pchome.com.tw/prod/DSBC0Z-A900GEYW6" target="_blank">TP-Link Deco X50-5G AX3000 SIM 卡分享器</a>
+            <a href="https://24h.pchome.com.tw/prod/DSBC0Z-A900GEYW6" target="_blank">TP-Link Deco X50-5G AX3000 SIM 卡分享器（5G/4G 雙模）</a>
           </div>
           <div class="specs">
-            <span class="spec-tag hi">5G Sub-6GHz NR（真正 5G SIM）</span>
+            <span class="spec-tag hi">5G Sub-6GHz NR + 4G LTE 雙模</span>
             <span class="spec-tag">Wi-Fi 6 AX3000 雙頻</span>
             <span class="spec-tag">1× 2.5GbE WAN</span>
-            <span class="spec-tag">Deco Mesh 擴充支援</span>
+            <span class="spec-tag hi">Deco Mesh 擴充支援</span>
             <span class="spec-tag">SIM 卡槽</span>
           </div>
           <div class="analysis">
-            <span class="pro">優：</span>TP-Link 品牌知名度高；支援 Deco Mesh 組網，房間大可加節點擴充 Wi-Fi；App 管理友好；PChome 購物保障。<br>
-            <span class="con">缺：</span>售價比 NR5103 貴 NT$119；台灣電信商認證資料較少；散熱設計偏封閉，24/7 長期運作需觀察溫度。
+            <span class="pro">優：</span>5G/4G 雙模（同 NR5103 可先用 4G）；Deco Mesh 組網擴充能力強；App 管理友好；PChome 購物保障。<br>
+            <span class="con">缺：</span>台灣電信商認證資料較少；散熱設計偏封閉，24/7 長期運作溫度需觀察；比 NR5103 貴 NT$119。
           </div>
         </td>
         <td class="price">
