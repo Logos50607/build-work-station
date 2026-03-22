@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 工作站採購報告 2026-03-22</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "Noto Sans TC", sans-serif; background: #f5f5f7; color: #1d1d1f; }
+
+  header { background: #1d1d1f; color: #f5f5f7; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; font-weight: 700; }
+  header p { color: #a1a1a6; margin-top: 0.4rem; font-size: 0.9rem; }
+
+  main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+
+  /* 結論卡 */
+  .verdict { background: #fff; border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem;
+             border-left: 5px solid #0071e3; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .verdict h2 { font-size: 1.1rem; color: #0071e3; margin-bottom: 0.8rem; }
+  .verdict-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .verdict-item { background: #f5f5f7; border-radius: 10px; padding: 1rem; }
+  .verdict-item .label { font-size: 0.75rem; color: #6e6e73; text-transform: uppercase; letter-spacing: .05em; }
+  .verdict-item .value { font-size: 1rem; font-weight: 600; margin-top: 0.3rem; }
+  .verdict-item .sub { font-size: 0.8rem; color: #6e6e73; margin-top: 0.2rem; }
+  .verdict-total { margin-top: 1rem; padding: 0.8rem 1rem; background: #0071e3;
+                   color: white; border-radius: 10px; font-weight: 600; font-size: 1rem; }
+
+  /* 品類區塊 */
+  .category { background: #fff; border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem;
+              box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .category-header { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 1rem; }
+  .category-header h2 { font-size: 1.2rem; font-weight: 700; }
+  .category-header .count { font-size: 0.8rem; color: #6e6e73; }
+
+  /* 優劣 */
+  .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
+  .pros, .cons { border-radius: 10px; padding: 0.9rem 1rem; }
+  .pros { background: #f0faf0; }
+  .cons { background: #fff5f5; }
+  .pros h3 { color: #1a7f37; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .cons h3 { color: #cf222e; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .pros li, .cons li { font-size: 0.83rem; margin-left: 1rem; margin-top: 0.3rem; line-height: 1.4; }
+
+  /* 建議 */
+  .rec { background: #f0f6ff; border-radius: 10px; padding: 0.9rem 1rem; margin-bottom: 1.2rem;
+         font-size: 0.85rem; line-height: 1.6; border-left: 3px solid #0071e3; }
+  .rec strong { color: #0071e3; }
+
+  /* 表格 */
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  thead th { background: #f5f5f7; padding: 0.6rem 0.8rem; text-align: left;
+             font-weight: 600; font-size: 0.78rem; color: #6e6e73; border-bottom: 1px solid #e5e5ea; }
+  thead th.price-col { text-align: right; }
+  tbody tr { border-bottom: 1px solid #f0f0f5; }
+  tbody tr:hover { background: #fafafa; }
+  tbody td { padding: 0.65rem 0.8rem; vertical-align: top; }
+  tbody td.price { text-align: right; font-weight: 600; white-space: nowrap; }
+  .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 99px;
+           font-size: 0.72rem; font-weight: 500; text-decoration: none; white-space: nowrap; }
+  .badge-pchome  { background: #fff0e6; color: #b84900; }
+  .badge-shopee  { background: #fff0f0; color: #d0011b; }
+  .badge-coolpc  { background: #e8f4ff; color: #0057a8; }
+  .tag-rec { background: #0071e3; color: white; font-size: 0.7rem; padding: 0.1rem 0.4rem;
+             border-radius: 4px; margin-left: 0.4rem; vertical-align: middle; }
+  .tag-warn { background: #ff9500; color: white; font-size: 0.7rem; padding: 0.1rem 0.4rem;
+              border-radius: 4px; margin-left: 0.4rem; vertical-align: middle; }
+
+  @media (max-width: 600px) {
+    .pros-cons { grid-template-columns: 1fr; }
+    .verdict-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI 工作站採購報告</h1>
+  <p>資料來源：PChome 24h・蝦皮・原價屋 ｜ 2026-03-22 ｜ 用途：24/7 Claude Code Agent + 偶爾 RunPod 產圖</p>
+</header>
+
+<main>
+
+  <!-- 最終建議 -->
+  <div class="verdict">
+    <h2>建議採購組合</h2>
+    <div class="verdict-grid">
+      <div class="verdict-item">
+        <div class="label">主機</div>
+        <div class="value">ASUS NUC 15 Pro U7 裸機</div>
+        <div class="sub">+ 32GB DDR5 + 1TB NVMe</div>
+      </div>
+      <div class="verdict-item">
+        <div class="label">5G 路由器</div>
+        <div class="value">Zyxel NR5103</div>
+        <div class="sub">蝦皮 NT$6,880（最低價）</div>
+      </div>
+      <div class="verdict-item">
+        <div class="label">UPS</div>
+        <div class="value">CyberPower CP1000AVRLCDA</div>
+        <div class="sub">1000VA 在線互動式，可安全關機</div>
+      </div>
+      <div class="verdict-item">
+        <div class="label">產圖</div>
+        <div class="value">RunPod 按需租用</div>
+        <div class="sub">A40 ~$0.44/hr，不買 GPU</div>
+      </div>
+    </div>
+    <div class="verdict-total">預估總花費：NT$35,000 ~ 39,000（視 NUC 版本）</div>
+  </div>
+
+  <!-- Mini PC -->
+  <div class="category">
+    <div class="category-header">
+      <h2>Mini PC（迷你主機）</h2>
+      <span class="count">10 筆比價</span>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h3>優點</h3>
+        <ul>
+          <li>體積小如飯盒，放家裡角落不佔空間</li>
+          <li>耗電極低（20~35W），24/7 掛著一年電費約 NT$800</li>
+          <li>幾乎無聲，深夜不打擾</li>
+          <li>Claude Code 走 API，不需要 GPU</li>
+          <li>裸機版可自配 32GB RAM，彈性大</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h3>缺點</h3>
+        <ul>
+          <li>行動版 CPU（U/H 系列）持續高載效能略遜桌上版</li>
+          <li>升級選項少，無 PCIe 插槽擴充</li>
+          <li>無法加裝獨立顯卡（產圖要靠外部）</li>
+          <li>SO-DIMM 記憶體比桌機 DIMM 貴</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rec">
+      <strong>建議：</strong>
+      選裸機版（準系統）自配 <strong>32GB DDR5 + 1TB NVMe</strong>，CP 值最高。
+      推薦 <strong>ASUS NUC 15 Pro U7 255H</strong>（蝦皮 NT$21,999）或
+      <strong>MSI CUBI NUC Z R7 8845HS</strong>（蝦皮 NT$17,900）。
+      蝦皮上的「整新機 NUC 12 i7/64G/2TB NT$26,000」也值得考慮，規格直接碾壓。
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>品名</th>
+          <th class="price-col">售價</th>
+          <th>來源</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>iPlug MiniBox M1 NUC Mini PC（送 HDMI）</td><td class="price">NT$9,590</td><td><a class="badge badge-pchome" href="https://24h.pchome.com.tw/prod/DSBE24-A900J3TXS" target="_blank">PChome</a></td></tr>
+        <tr><td>ASUS NUC 15 Pro C3 準系統 <span class="tag-warn">規格弱</span></td><td class="price">NT$9,900</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/54133273/24895650502" target="_blank">蝦皮</a></td></tr>
+        <tr><td>MSI CUBI N ADL 8G/128G 迷你主機 <span class="tag-warn">規格弱</span></td><td class="price">NT$9,990</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/584227475/54154929522" target="_blank">蝦皮</a></td></tr>
+        <tr><td>GIGABYTE BRIX N150 8G/256G Win11 Pro</td><td class="price">NT$9,990</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/54133273/49455664547" target="_blank">蝦皮</a></td></tr>
+        <tr><td>ASUS H-P500MV i3-1315U / 8G / 512G <span class="tag-warn">8G 不夠</span></td><td class="price">NT$10,990</td><td><a class="badge badge-coolpc" href="https://www.coolpc.com.tw/evaluate.php" target="_blank">原價屋</a></td></tr>
+        <tr><td>GIGABYTE BRIX U5 225H 準系統 <span class="tag-rec">推薦裸機</span></td><td class="price">NT$15,999</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/54133273/50802215521" target="_blank">蝦皮</a></td></tr>
+        <tr><td>GIGABYTE BRIX R7 8840 準系統</td><td class="price">NT$16,999</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/54133273/46802288760" target="_blank">蝦皮</a></td></tr>
+        <tr><td>MSI CUBI NUC Z AI R7 8845HS 準系統 <span class="tag-rec">推薦裸機</span></td><td class="price">NT$17,900</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/54133273/50502630731" target="_blank">蝦皮</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5G CPE -->
+  <div class="category">
+    <div class="category-header">
+      <h2>5G CPE（SIM 卡路由器）</h2>
+      <span class="count">10 筆比價</span>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h3>優點</h3>
+        <ul>
+          <li>不需拉固網，只要 SIM 卡就能上線</li>
+          <li>CGNAT 天然隔絕外部掃描，資安較佳</li>
+          <li>有 Wi-Fi 可按需開關，有線網路直連 Mini PC</li>
+          <li>搭配 Tailscale 可從任何地方 SSH 回家</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h3>缺點</h3>
+        <ul>
+          <li>行動網路可能偶發斷線或 IP 重撥</li>
+          <li>上傳頻寬較窄（影響 Claude API 大量 context 傳輸）</li>
+          <li>需要月租 SIM 吃到飽（約 NT$799~999/月）</li>
+          <li>蝦皮便宜機多為大陸 CPE，台灣頻段需確認</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rec">
+      <strong>建議：</strong>
+      <strong>Zyxel NR5103</strong>（蝦皮 NT$6,880）是台灣電信商認證機型，
+      支援中華/遠傳/台哥大全頻段，比 TP-Link Deco X50-5G 便宜 NT$119 且散熱設計更適合長期運作。
+      蝦皮便宜的中國 CPE 請先確認 n78 頻段支援，避免只有 4G 速度。
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>品名</th>
+          <th class="price-col">售價</th>
+          <th>來源</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>TP-LINK EAP610 AX1800 Wi-Fi 6（非 5G SIM，是 AP）<span class="tag-warn">不是 CPE</span></td><td class="price">NT$3,299</td><td><a class="badge badge-coolpc" href="https://www.coolpc.com.tw/evaluate.php" target="_blank">原價屋</a></td></tr>
+        <tr><td>HUAWEI H312-371 5G CPE 福利品 <span class="tag-warn">中國機，頻段確認</span></td><td class="price">NT$3,480</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/106466025/22466084838" target="_blank">蝦皮</a></td></tr>
+        <tr><td>聯通 CPE VN007+ 5G SIM 全頻分享器 <span class="tag-warn">大陸機</span></td><td class="price">NT$3,990</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/373534959/28186064974" target="_blank">蝦皮</a></td></tr>
+        <tr><td>TP-LINK Archer BE550 BE9300 Wi-Fi 7（非 5G SIM）<span class="tag-warn">不是 CPE</span></td><td class="price">NT$5,999</td><td><a class="badge badge-coolpc" href="https://www.coolpc.com.tw/evaluate.php" target="_blank">原價屋</a></td></tr>
+        <tr><td>Zyxel NR5103 5G 插卡路由器 <span class="tag-rec">推薦</span></td><td class="price">NT$6,880</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/19176345/27776160866" target="_blank">蝦皮</a></td></tr>
+        <tr><td>TP-Link Deco X50-5G AX3000 SIM 卡分享器</td><td class="price">NT$6,999</td><td><a class="badge badge-pchome" href="https://24h.pchome.com.tw/prod/DSBC0Z-A900GEYW6" target="_blank">PChome</a></td></tr>
+        <tr><td>TP-Link Deco X50-5G AX3000（蝦皮同款）</td><td class="price">NT$6,999</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/55797099/15097458812" target="_blank">蝦皮</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- UPS -->
+  <div class="category">
+    <div class="category-header">
+      <h2>UPS（不斷電系統）</h2>
+      <span class="count">10 筆比價</span>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h3>優點</h3>
+        <ul>
+          <li>停電時緩衝時間，Linux 可透過 USB 安全關機</li>
+          <li>穩壓保護，避免電壓不穩損壞 SSD 與主機板</li>
+          <li>搭配 BIOS「來電自動開機」，停電後完全自動復原</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h3>缺點</h3>
+        <ul>
+          <li>離線式（Off-line）切換時有短暫間隔，SSD 在切換瞬間有資料損毀風險</li>
+          <li>電池約 3~5 年需更換（約 NT$500~800）</li>
+          <li>650VA 只撐約 15~20 分鐘（Mini PC 功耗低故尚可）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rec">
+      <strong>建議：</strong>
+      <strong>CyberPower CP1000AVRLCDA</strong>（NT$3,290）是最佳選擇：
+      1000VA 在線互動式、模擬正弦波、USB 監控線，Linux 安裝 <code>nut</code> 套件後低電量自動安全關機。
+      650VA 離線式雖然最便宜（NT$1,190），但切換時有電源間隙，不建議用於 24/7 主機。
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>品名</th>
+          <th class="price-col">售價</th>
+          <th>來源</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>CyberPower UT650G 650VA 在線互動式 <span class="tag-warn">650VA 偏小</span></td><td class="price">NT$1,190</td><td><a class="badge badge-pchome" href="https://24h.pchome.com.tw/prod/DCAR1D-A900BP3QK" target="_blank">PChome</a></td></tr>
+        <tr><td>CyberPower UT650G-TW 蝦皮（同款）</td><td class="price">NT$1,190</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/8855246/18927153123" target="_blank">蝦皮</a></td></tr>
+        <tr><td>科風 WAR-500A 500VA 在線互動式</td><td class="price">NT$1,190</td><td><a class="badge badge-coolpc" href="https://www.coolpc.com.tw/evaluate.php" target="_blank">原價屋</a></td></tr>
+        <tr><td>Eaton A-500 500VA 離線式 <span class="tag-warn">離線式不建議</span></td><td class="price">NT$1,250</td><td><a class="badge badge-coolpc" href="https://www.coolpc.com.tw/evaluate.php" target="_blank">原價屋</a></td></tr>
+        <tr><td>CyberPower CP650HGA 650VA 離線式 <span class="tag-warn">離線式不建議</span></td><td class="price">NT$1,580</td><td><a class="badge badge-shopee" href="https://shopee.tw/product/8855246/20108860035" target="_blank">蝦皮</a></td></tr>
+        <tr><td>CyberPower CP1000AVRLCDA 1000VA 在線互動式 <span class="tag-rec">推薦</span></td><td class="price">NT$3,290</td><td><a class="badge badge-pchome" href="https://24h.pchome.com.tw/prod/QABB5C-A900A2AED" target="_blank">PChome</a></td></tr>
+        <tr><td>CyberPower CP1000PFCLCDA 1000VA 正弦波在線互動式</td><td class="price">NT$4,690</td><td><a class="badge badge-coolpc" href="https://www.coolpc.com.tw/evaluate.php" target="_blank">原價屋</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer style="text-align:center;padding:2rem;color:#6e6e73;font-size:0.8rem;">
+  由 Claude Code 自動爬取・PChome / 蝦皮 / 原價屋 ・2026-03-22
+</footer>
+
+</body>
+</html>

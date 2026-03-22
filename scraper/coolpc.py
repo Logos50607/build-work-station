@@ -10,7 +10,7 @@ PAGE_URL = "https://www.coolpc.com.tw/evaluate.php"
 
 # 採購品類 → select name 對照表
 CATEGORY_SELECT = {
-    "GPU 主機": "n1",    # 品牌小主機、AIO（含電競主機）
+    "Mini PC": "n1",     # 品牌小主機、AIO
     "5G CPE":  "n19",    # IP分享器｜網卡｜網通設備
     "UPS":     "n26",    # UPS不斷電
 }

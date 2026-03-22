@@ -6,9 +6,10 @@ import sys
 import datetime
 import pchome
 import coolpc
+import shopee
 from config import PRODUCTS, TOP_N, MAX_PRICE, MIN_PRICE, EXCLUDE_KEYWORDS
 
-SOURCES = [pchome.search, coolpc.search]
+PCHOME_SOURCES = [pchome.search, shopee.search]
 
 
 def is_valid(item: dict, category: str) -> bool:
@@ -31,14 +32,15 @@ def collect(category: str, keywords: list[str]) -> list[dict]:
     """
     seen, results = set(), []
 
-    # PChome: 關鍵字搜尋
+    # PChome + 蝦皮: 關鍵字搜尋
     for kw in keywords:
-        print(f"  PChome 搜尋：{kw} ...")
-        for item in pchome.search(kw, TOP_N):
-            key = (item["source"], item["name"])
-            if key not in seen and is_valid(item, category):
-                seen.add(key)
-                results.append(item)
+        print(f"  搜尋：{kw} ...")
+        for source in PCHOME_SOURCES:
+            for item in source(kw, TOP_N):
+                key = (item["source"], item["name"])
+                if key not in seen and is_valid(item, category):
+                    seen.add(key)
+                    results.append(item)
 
     # 原價屋: 直接取類別全量
     print(f"  原價屋 抓類別：{category} ...")
