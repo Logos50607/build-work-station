@@ -4,6 +4,7 @@
 
 | 品名 | 售價 | 來源 |
 |------|-----:|------|
+| MSI Cubi 5 1M-447BTW 準系統（Core3 100U/空機） 廠商直送 | NT$ 9,490 | [蝦皮](https://shopee.tw/product/116309859/50103913886) |
 | 【iPlug MiniBox M1】NUC新主機：Mini PC迷你電腦★送HDMI傳輸線 | NT$ 9,590 | [PChome](https://24h.pchome.com.tw/prod/DSBE24-A900J3TXS) |
 | ASUS NUC 15 Pro【RNUC15CRHI300009】C3/準系統/迷你主機/原價屋 | NT$ 9,900 | [蝦皮](https://shopee.tw/product/54133273/24895650502) |
 | MSI 微星 CUBI N ADL-286TW 迷你主機 桌上型電腦 商務主機 小主機 8G 128 | NT$ 9,990 | [蝦皮](https://shopee.tw/product/584227475/54154929522) |
@@ -13,7 +14,6 @@
 | 系列【黑鯨】i5-12400六核 電腦主機(16G/512G SSD) | NT$ 15,699 | [PChome](https://24h.pchome.com.tw/prod/DSBC68-A900IU534) |
 | GIGABYTE技嘉 BRIX【GB-BRU5-225H】準系統/迷你主機/原價屋 | NT$ 15,999 | [蝦皮](https://shopee.tw/product/54133273/50802215521) |
 | GIGABYTE技嘉 BRIX【GB-BER7-8840】準系統/迷你主機/原價屋 | NT$ 16,999 | [蝦皮](https://shopee.tw/product/54133273/46802288760) |
-| MSI微星 Cubi NUC Z AI 8M【009BTW】〈黑〉R7/準系統/迷你主機/原價屋【活 | NT$ 17,900 | [蝦皮](https://shopee.tw/product/54133273/50502630731) |
 
 ## 5G CPE
 
